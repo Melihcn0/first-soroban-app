@@ -115,11 +115,13 @@ function importAll() {
 }
 
 // Calling the functions (equivalent to the last part of your bash script)
-fundAll();
-buildAll();
-deployAll();
-bindAll();
-importAll();
-
-console.log('STELLAR_ACCOUNT:', process.env.STELLAR_ACCOUNT);
-console.log('STELLAR_NETWORK:', process.env.STELLAR_NETWORK);
+// Bu dosya sadece doğrudan node initialize.js ile çalıştırıldığında aktif olmalı.
+if (import.meta.url === `file://${process.argv[1]}`) {
+  fundAll();
+  buildAll();
+  deployAll();
+  bindAll();
+  importAll();
+  console.log('STELLAR_ACCOUNT:', process.env.STELLAR_ACCOUNT);
+  console.log('STELLAR_NETWORK:', process.env.STELLAR_NETWORK);
+}
