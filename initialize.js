@@ -30,7 +30,11 @@ function exe(command) {
 }
 
 function fundAll() {
-  exe(`${cli} keys generate --fund ${process.env.STELLAR_ACCOUNT} | true`);
+  try {
+    exe(`${cli} keys generate --fund ${process.env.STELLAR_ACCOUNT}`);
+  } catch (e) {
+    console.warn('Kimlik zaten var, atlanıyor.');
+  }
 }
 
 function removeFiles(pattern) {
