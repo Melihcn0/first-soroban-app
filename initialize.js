@@ -120,3 +120,6 @@ buildAll();
 deployAll();
 bindAll();
 importAll();
+
+console.log('STELLAR_ACCOUNT:', process.env.STELLAR_ACCOUNT);
+console.log('STELLAR_NETWORK:', process.env.STELLAR_NETWORK);
